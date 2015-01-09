@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exemplo InAppBrowser.addEventListener (Vs 2.3.0)</title>
+
+    <script type="text/javascript" charset="utf-8" src="cordova-2.5.0.js"></script>
+    <link rel="stylesheet" href="estilo.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script type="text/javascript" charset="utf-8">
+
+    // Wait for device API libraries to load
+    //
+    //document.addEventListener("deviceready", onDeviceReady, false);
+
+    // device APIs are available
+    //
+    function onDeviceReady() {
+         var ref = window.open('exe_1_misc.html', '_blank', 'location=yes', 'CloseButtonCaption=Voltar');
+         ref.addEventListener('loadstart', function(event) { alert('Início: ' + event.url); });
+         ref.addEventListener('loadstop', function(event) { alert('Parou: ' + event.url); });
+         ref.addEventListener('loaderror', function(event) { alert('Erro: ' + event.message); });
+         ref.addEventListener('exit', function(event) { alert("Saída:"+event.type); });
+    }
+
+    </script>
+  </head>
+  <body id="stage" class="theme">
+  <h1>Trabalhando com InAppBrowser - Index</h1><BR><BR>
+  <a class="btn large" href="exe_8_inappbrowser.html" target="_blank">Exe_8_inappbrowser - Click aqui</a><BR>
+  </body>
+</html>
